@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'health',
     'rest_framework',
     'api',
+    'rest_framework.authtoken',
 
 ]
 
@@ -129,4 +130,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+# ユーザーモデルの時に追加
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# signupの時に追加した。
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
